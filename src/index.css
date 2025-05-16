@@ -23,13 +23,16 @@
    padding: 0;
    box-sizing: border-box;
 }
+a {
+   user-select: none;
+}
 :root {
    --bright-orange: hsl(32, 53%, 66%);
-   --check-bg-gradient: linear-gradient(hsl(27, 72%, 50%), hsl(61, 62%, 72%));
+   --check-bg-gradient: linear-gradient(hsl(56, 62%, 82%),hsl(30, 72%, 55%));
 
-   --light-grayish-orange: hsl(53, 11%, 84%);
-   --dark-grayish-orange: hsl(33, 9%, 61%);
-   --very-dark-grayish-orange: hsl(38, 9%, 46%);
+   --light-grayish-orange: hsl(53, 11%, 94%);
+   --dark-grayish-orange: hsl(33, 9%, 71%);
+   --very-dark-grayish-orange: hsl(38, 9%, 56%);
    --very-dark-orange: hsl(35, 21%, 11%);
 }
 
@@ -43,7 +46,7 @@
 body {
    width: 100%;
    min-height: 100vh;
-   background-color: #ffe3cf;
+   background: var(--check-bg-gradient);
 }
 header {
    display: flex;
@@ -94,7 +97,9 @@ header > h1 {
    padding: 6px 10px;
    font-size: 16px;
    background-color: #f9f9f900;
-   color: var(--dark-grayish-orange);
+}
+.create-todo > input::placeholder{
+   color: var(--very-dark-grayish-orange);
 }
 .create-todo > input:focus {
    color: var(--dark-grayish-orange);
@@ -106,7 +111,6 @@ header > h1 {
    overflow-y: auto;
    border-top-right-radius: 14px;
    border-top-left-radius: 14px;
-   transition: 0.3s ease-in;
 }
 .empty {
    display: flex;
@@ -129,7 +133,6 @@ header > h1 {
    align-items: center;
    height: 55px;
    margin-top: 10px;
-   transition: 0.3s ease;
 }
 .todo > p {
    font-family: "Josefin Sans", sans-serif;
@@ -184,6 +187,9 @@ hr {
    color: var(--very-dark-grayish-orange);
    border-radius: 14px;
    transition: 0.3s ease;
+}
+.clear-div > p{
+   user-select: none;
 }
 .clear-div > a {
    cursor: pointer;

@@ -5,7 +5,6 @@ import TodoList from "./components/TodoList";
 import Todo from "./components/Todo";
 import Clear from "./components/Clear";
 import Footer from "./components/Footer";
-import Empty from "./components/Empty";
 
 const App = () => {
    const [todoList, setTodoList] = useState([]);
@@ -69,11 +68,7 @@ const App = () => {
       <>
          <Header />
          <NewTodo addTodo={addTodo} showAll={showAll} />
-         {listElements.length ? (
-            <TodoList listElements={listElements} />
-         ) : (
-            <Empty />
-         )}
+         <TodoList listElements={listElements} filter={filter} />
          <Clear
             todoList={todoList}
             clearCompleted={clearCompleted}

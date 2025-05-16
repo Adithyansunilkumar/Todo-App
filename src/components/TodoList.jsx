@@ -1,11 +1,25 @@
 import React from "react";
 
 const TodoList = (props) => {
-   return (
-      props.listElements.length>0 && (
-         <div className="todo-list-div">{props.listElements}</div>
-      )
-   );
+   if (props.listElements.length > 0) {
+      return <div className="todo-list-div">{props.listElements}</div>;
+   } else if (props.filter == "all") {
+      return (
+         <div className="empty">
+            <h2>Your list is empty !</h2>
+            <img src="src\assets\images\empty.png" />
+         </div>
+      );
+   }
+
+   // return props.listElements.length ? (
+   //    <div className="todo-list-div">{props.listElements}</div>
+   // ) : (
+   //    <div className="empty">
+   //       <h2>Your list is empty !</h2>
+   //       <img src="src\assets\images\empty.png" />
+   //    </div>
+   // );
 };
 
 export default TodoList;
