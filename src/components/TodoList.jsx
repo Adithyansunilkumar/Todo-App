@@ -1,4 +1,5 @@
 import React from "react";
+import empty from "/src/assets/images/empty.png"
 
 const TodoList = (props) => {
    if (props.listElements.length > 0) {
@@ -7,19 +8,10 @@ const TodoList = (props) => {
       return (
          <div className="empty">
             <h2>Your list is empty !</h2>
-            <img src="src\assets\images\empty.png" />
+            <img src={empty} />
          </div>
       );
    }
-
-   // return props.listElements.length ? (
-   //    <div className="todo-list-div">{props.listElements}</div>
-   // ) : (
-   //    <div className="empty">
-   //       <h2>Your list is empty !</h2>
-   //       <img src="src\assets\images\empty.png" />
-   //    </div>
-   // );
 };
 
 export default TodoList;
