@@ -27,7 +27,7 @@ a {
    user-select: none;
 }
 :root {
-   --bright-orange: hsl(32, 53%, 66%);
+   --bright-orange: hsl(32, 53%, 65%);
    --check-bg-gradient: linear-gradient(hsl(56, 62%, 82%),hsl(30, 72%, 55%));
 
    --light-grayish-orange: hsl(53, 11%, 94%);
