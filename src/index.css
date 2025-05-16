@@ -31,8 +31,8 @@ a {
    --check-bg-gradient: linear-gradient(hsl(56, 62%, 82%),hsl(30, 72%, 55%));
 
    --light-grayish-orange: hsl(53, 11%, 94%);
-   --dark-grayish-orange: hsl(33, 9%, 71%);
-   --very-dark-grayish-orange: hsl(38, 9%, 56%);
+   --dark-grayish-orange: hsl(33, 9%, 81%);
+   --very-dark-grayish-orange: hsl(38, 9%, 66%);
    --very-dark-orange: hsl(35, 21%, 11%);
 }
 
@@ -96,6 +96,7 @@ header > h1 {
    outline: none;
    padding: 6px 10px;
    font-size: 16px;
+   color: var(--very-dark-orange);
    background-color: #f9f9f900;
 }
 .create-todo > input::placeholder{
