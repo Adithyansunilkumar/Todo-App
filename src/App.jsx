@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
@@ -7,17 +7,32 @@ import Clear from "./components/Clear";
 import Footer from "./components/Footer";
 
 const App = () => {
-   const [todoList, setTodoList] = useState([]);
-   const [id, setId] = useState(0);
-   const [filter, setFilter] = useState("all");
+   const [todoList, setTodoList] = useState(() => {
+      const storedList = localStorage.getItem("todoList");
+      return storedList ? JSON.parse(storedList) : [];
+    });
+    const [id, setId] = useState(() => {
+      const storedList = localStorage.getItem("todoList");
+      if (storedList) {
+        const parsedList = JSON.parse(storedList);
+        const maxId = parsedList.reduce((max, todo) => (todo.id > max ? todo.id : max), 0);
+        return maxId + 1;
+      }
+      return 0;
+    });
+    const [filter, setFilter] = useState("all");
+
+   useEffect(()=>{
+      localStorage.setItem("todoList",JSON.stringify(todoList))
+   },[todoList])
 
    function addTodo(todoValue) {
-      setId((prevId) => prevId + 1);
       setTodoList((prevTodos) => [
-         { text: todoValue, id: id, isComplete: false },
-         ...prevTodos,
+        { text: todoValue, id: id, isComplete: false },
+        ...prevTodos,
       ]);
-   }
+      setId((prevId) => prevId + 1);
+    }
    function removeTodo(todoId) {
       setTodoList((prevList) => prevList.filter((todo) => todo.id !== todoId));
    }
